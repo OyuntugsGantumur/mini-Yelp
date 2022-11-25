@@ -21,30 +21,21 @@ int main() {
     char review_search[5];
 
     printf("Please enter your command!\n");
-    printf("- a to add a new restaurant\n");
-    printf("- p to print all restaurant information\n");
-    printf("- s to search restaurants\n");
-    printf("- e to explore with name and location\n");
-    printf("- r to remove a restaurant\n");
-    printf("- m to modify/update restaurant information\n");
-    printf("- w to write to a file\n");
-    printf("- x to exit\n");
-    
     fgets(command, 5, stdin);
     command[strcspn(command, "\n")] = 0;
 
-    while(strcmp(command, "x") != 0) {
+    while(strcmp(command, "exit") != 0) {
 
-        if(strcmp(command, "p") == 0) {
+        if(strcmp(command, "print") == 0) {
 
             printf("%s", toStringBinaryTree(btName));
         
-        } else if (strcmp(command, "w") == 0) {
+        } else if (strcmp(command, "write") == 0) {
 
             writeFile(btName);
             printf("Restaurants' information is written in newrestaurants.txt file!\n");
 
-        } else if(strcmp(command, "e") == 0) {
+        } else if(strcmp(command, "explore") == 0) {
  
             printf("Name input: ");
             fgets(name_search, 30, stdin);
@@ -58,7 +49,7 @@ int main() {
             if(found == NULL) printf("No restaurant is found!\n"); 
             else printf("%s\n", printRestaurant( *found ));
 
-        } else if(strcmp(command, "a") == 0) {
+        } else if(strcmp(command, "add") == 0) {
             
             printf("Name to add: ");
             fgets(name_search, 30, stdin);
@@ -93,7 +84,7 @@ int main() {
             insertByName(btName, restToAdd);
             insertByLocation(btLocation, restToAdd);
 
-        } else if(strcmp(command, "r") == 0) {
+        } else if(strcmp(command, "remove") == 0) {
 
             // removes a restaurant from all trees
             printf("Name to delete: ");
@@ -112,7 +103,7 @@ int main() {
                 removeFromBTName(btName->root, found);
             }
 
-        } else if(strcmp(command, "m") == 0) {
+        } else if(strcmp(command, "modify") == 0) {
 
             //modifies a restaurant found by name and location
             printf("Name to modify: ");
@@ -159,7 +150,7 @@ int main() {
 
             // printf("%s\n", printRestaurant(*restToModify));
         
-        } else if (strcmp(command, "s") == 0) {
+        } else if (strcmp(command, "search") == 0) {
 
             printf("City input: ");
             fgets(city_search, 30, stdin);
