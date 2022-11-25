@@ -19,6 +19,6 @@ Each restaurant in the knowledge base has the following information:
 - city
 - food type(s), separated by a comma (e.g. Chinese, vegetarian, Italian)
 - hours and days of operation
-- cost ($, $$, $$$)
+- cost ($, -$$, or -$$$)
 - review, ranging from 0 to 5
 - number of reviews
